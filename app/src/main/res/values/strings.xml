@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">mental arithmetic</string>
+
+
+    <!-- home page strings -->
+    <string name="home_title">Mental Arithmetic</string>
+    <string name="title_activity_start">Start</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <string name="number1"></string>
+    <string name="number2"></string>
+    <string name="number3"></string>
+    <string name="number4"></string>
+
+
+</resources>

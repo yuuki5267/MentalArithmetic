@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="false"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".Setting">
+
+        <TextView
+            android:id="@+id/text_digit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number of digits:"
+            android:textSize="16sp"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <EditText
+            android:id="@+id/edittext_digit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="1-10 only"
+            android:ems="2"
+            android:inputType="number"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/text_digit"
+            />
+        <TextView
+            android:id="@+id/text_totalnumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amount of numbers:"
+            android:textSize="16sp"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_digit"
+            />
+
+        <EditText
+            android:id="@+id/edittext_totalnumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="1-10 only"
+            android:ems="2"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@id/text_totalnumber"
+            app:layout_constraintTop_toBottomOf="@id/edittext_digit"
+            />
+
+        <Button
+            android:id="@+id/submit_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:layout_marginTop="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edittext_totalnumber"
+            />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
