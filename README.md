@@ -4,7 +4,7 @@
 <h2>For now, This app have the following features:</h2>
 
 * Settings function: adjust the "number of digits" and "Amount of number"
-* Mental arithmetic for Addition, functioning
+* Mental arithmetic for Addition,subtration
 * Ability to reset the quiz
 
 <details>
