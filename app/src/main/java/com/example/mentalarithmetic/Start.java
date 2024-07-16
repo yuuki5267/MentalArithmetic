@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Start extends AppCompatActivity {
+    TextView[] numbers = new TextView[10];
 
     private int count = 3;
 
@@ -29,7 +30,7 @@ public class Start extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.playing_scene);
 
-        TextView[] numbers = new TextView[10];
+
         numbers[0] = findViewById(R.id.number1);
         numbers[1] = findViewById(R.id.number2);
         numbers[2] = findViewById(R.id.number3);
@@ -41,30 +42,34 @@ public class Start extends AppCompatActivity {
         numbers[8] = findViewById(R.id.number9);
         numbers[9] = findViewById(R.id.number10);
 
+        //debug only
+        TextView debug = findViewById(R.id.debug);
+
         //Take from settings
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         int text_digit = prefs.getInt("text_digit", 4);
         int totalnumber = prefs.getInt("totalnumber", 4);
 
-        Random rand = new Random();
-        int quiz = totalnumber;
-        int digits = 1;
-        for(int i = 0 ; i < text_digit; i++){
-            digits = digits * 10;
-        }
-        int sum = 0;
-        int jawapan = 0;
-        for (int i = 0; i < quiz; i++) {
-            int num = rand.nextInt(digits) + 1 ;
-            numbers[i].setText(String.valueOf(num));
-            numbers[i].setTextSize(20);
-            sum = sum + num;
+        //debug
+        String gamemode = prefs.getString("gamemode", "lol");
+        debug.setText(gamemode);
+        int finalAnswer = 0;
+        switch (gamemode){
+            case "Addition Only":
+                finalAnswer = addition(totalnumber,text_digit);
+                break;
+            case "May have negative value":
+                finalAnswer = subNegative(totalnumber,text_digit);
+                break;
+            default:
+                finalAnswer = addition(totalnumber,text_digit);
+                break;
         }
 
         EditText answer = findViewById(R.id.answer);
         Button submitButton = findViewById(R.id.submit_answer);
         TextView comment = findViewById(R.id.comment);
-        final int diuniaseng = sum;
+        final int diuniaseng = finalAnswer;
         ConstraintLayout startLayout = findViewById(R.id.playingLayout);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,8 +112,6 @@ public class Start extends AppCompatActivity {
         });
 
 
-
-
         Button buttonReset = (Button)findViewById(R.id.reset);
         buttonReset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,5 +128,52 @@ public class Start extends AppCompatActivity {
             }
         });
 
+    }
+
+    private int addition(int totalnumber, int text_digit ){
+        Random rand = new Random();
+        int quiz = totalnumber;
+        int digits = 1;
+        for(int i = 0 ; i < text_digit; i++){
+            digits = digits * 10;
+        }
+        int sum = 0;
+        int jawapan = 0;
+        for (int i = 0; i < quiz; i++) {
+            int num = rand.nextInt(digits) + 1 ;
+            numbers[i].setText(String.valueOf(num));
+            numbers[i].setTextSize(20);
+            sum = sum + num;
+        }
+
+        return sum;
+    }
+
+    private int subNegative(int totalnumber, int text_digit ){
+        Random rand = new Random();
+        int quiz = totalnumber;
+        int digits = 1;
+        for(int i = 0 ; i < text_digit; i++){
+            digits = digits * 10;
+        }
+        int sum = 0;
+        int jawapan = 0;
+
+        for (int i = 0; i < quiz; i++) {
+            boolean positive = rand.nextBoolean();
+            int num = 0;
+            if(!positive) {
+                num = -1 * rand.nextInt(digits) + 1;
+            }else{
+                num =  rand.nextInt(digits) + 1;
+            }
+            System.out.println(num);
+            numbers[i].setText(String.valueOf(num));
+            numbers[i].setTextSize(20);
+            sum = sum + num;
+
+        }
+
+        return sum;
     }
 }

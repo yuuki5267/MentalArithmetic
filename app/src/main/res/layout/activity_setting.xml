@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="Number of digits:"
             android:textSize="16sp"
-            android:padding="8dp"
+            android:padding="11.5dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:text="Amount of numbers:"
             android:textSize="16sp"
-            android:padding="8dp"
+            android:padding="11.5dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_digit"
             />
@@ -56,6 +56,28 @@
             app:layout_constraintTop_toBottomOf="@id/edittext_digit"
             />
 
+        <TextView
+            android:id="@+id/text_gameplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gameplay:"
+            android:textSize="16sp"
+            android:padding="11.5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_totalnumber"
+            />
+
+
+        <Spinner
+            android:id="@+id/spinner_gameplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown"
+            app:layout_constraintStart_toEndOf="@id/text_gameplay"
+            app:layout_constraintTop_toBottomOf="@id/edittext_totalnumber"
+            />
+
         <Button
             android:id="@+id/submit_setting"
             android:layout_width="wrap_content"
@@ -64,7 +86,7 @@
             android:layout_marginTop="32dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edittext_totalnumber"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_gameplay"
             />
 
     </android.support.constraint.ConstraintLayout>
