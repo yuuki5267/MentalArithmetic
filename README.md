@@ -7,10 +7,11 @@
 * Mental arithmetic for Addition,Substraction
 * Ability to reset the quiz
 
+<h3><a href="https://docs.google.com/document/d/1Urgkp6NbwSEshDnWT-ozFNrNaA9OjBNfGIu5G1JcWIo/edit#heading=h.u0gpkgkb8bh9">Documentation of this project </a></h3>
+<h3><a href="https://docs.google.com/document/d/1i1L3KYQgnkjIs3bn9oxGgujiVlwcbFYo9-SsvNxHQww/edit#heading=h.78b2sqak8zv8">Version Details</a></h3>
+
 <details>
 <summary>Side Notes:</summary>
 This was a project I have done months ago, I may get back to this after finishing my project in Unity.
 
-Documentation:
-https://docs.google.com/document/d/1Urgkp6NbwSEshDnWT-ozFNrNaA9OjBNfGIu5G1JcWIo/edit
 </details>
