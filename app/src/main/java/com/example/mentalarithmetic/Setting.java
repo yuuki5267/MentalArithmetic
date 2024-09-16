@@ -22,7 +22,7 @@ public class Setting extends AppCompatActivity {
 
         //Implement spinner for selecting game mode
         Spinner gamemode = (Spinner) findViewById(R.id.spinner_gameplay);
-        String[] items = new String[]{"Addition Only", "Addition and Substraction", "May have negative value"};
+        String[] items = new String[]{"Addition Only", "Subtraction", "May have negative value"};
         //create an adapter to describe how the items are displayed, adapters are used in several places in android.
         //There are multiple variations of this, but this is the basic variant.
         ArrayAdapter<String> adapter = new ArrayAdapter<>(Setting.this, android.R.layout.simple_spinner_dropdown_item, items);

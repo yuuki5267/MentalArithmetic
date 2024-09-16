@@ -10,4 +10,7 @@
 <details>
 <summary>Side Notes:</summary>
 This was a project I have done months ago, I may get back to this after finishing my project in Unity.
+
+Documentation:
+https://docs.google.com/document/d/1Urgkp6NbwSEshDnWT-ozFNrNaA9OjBNfGIu5G1JcWIo/edit
 </details>

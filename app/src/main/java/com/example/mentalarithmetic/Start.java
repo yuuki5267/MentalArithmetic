@@ -61,6 +61,9 @@ public class Start extends AppCompatActivity {
             case "May have negative value":
                 finalAnswer = subNegative(totalnumber,text_digit);
                 break;
+            case "Subtraction":
+                finalAnswer = subtraction(totalnumber,text_digit);
+                break;
             default:
                 finalAnswer = addition(totalnumber,text_digit);
                 break;
@@ -130,7 +133,7 @@ public class Start extends AppCompatActivity {
 
     }
 
-    private int addition(int totalnumber, int text_digit ){
+    private int addition(int totalnumber, int text_digit){
         Random rand = new Random();
         int quiz = totalnumber;
         int digits = 1;
@@ -138,9 +141,37 @@ public class Start extends AppCompatActivity {
             digits = digits * 10;
         }
         int sum = 0;
-        int jawapan = 0;
         for (int i = 0; i < quiz; i++) {
             int num = rand.nextInt(digits) + 1 ;
+            numbers[i].setText(String.valueOf(num));
+            numbers[i].setTextSize(20);
+            sum = sum + num;
+        }
+
+        return sum;
+    }
+
+    private int subtraction(int totalnumber, int text_digit) {
+        //need to make sure the first digit is the biggest and remaining numbers combined cannot bigger than the first
+        //Regardless of text_digit they choose, just multiply by 10 to make sure it’s the biggest!
+        Random rand = new Random();
+        int quiz = totalnumber;
+        int digits = 1;
+        for(int i = 0 ; i < text_digit; i++){
+            digits = digits * 10;
+        }
+        int minBoundary = digits * 8; //make sure the first digit is big
+        int sum = 0;
+
+        for (int i = 0; i < quiz; i++) {
+            if(i == 0){
+                int num = rand.nextInt(digits * 10 - minBoundary + 1) + minBoundary ;
+                numbers[i].setText(String.valueOf(num));
+                numbers[i].setTextSize(20);
+                sum = sum + num;
+                continue;
+            }
+            int num = -1 * rand.nextInt(digits) + 1;
             numbers[i].setText(String.valueOf(num));
             numbers[i].setTextSize(20);
             sum = sum + num;
@@ -157,7 +188,6 @@ public class Start extends AppCompatActivity {
             digits = digits * 10;
         }
         int sum = 0;
-        int jawapan = 0;
 
         for (int i = 0; i < quiz; i++) {
             boolean positive = rand.nextBoolean();
@@ -176,4 +206,6 @@ public class Start extends AppCompatActivity {
 
         return sum;
     }
+
+
 }
